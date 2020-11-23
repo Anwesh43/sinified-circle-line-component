@@ -47,3 +47,45 @@ export const useDimension = () => {
       h
     }
 }
+
+export const useStyle = (scale, w, h) => {
+  const size = Math.min(w, h)/ 10
+  const sf = sinify(scale)
+  const sf1 = sinify(scale)
+  const position = 'absolute'
+  const strokeWidth = Math.min(w, h) / 90
+  const background = '#3F51B5'
+  return {
+    circleStyle() {
+      const left = `${(w - size) * sf}px`
+      const top = `${(h - size) - (h / 2 - size / 2) * sf1}px`
+      const borderRadius = `50%`
+      const width = `${size}px`
+      const height = `${size}px`
+      
+      return {
+        position, 
+        width, 
+        height, 
+        left, 
+        top, 
+        borderRadius, 
+        background
+      }
+    }, 
+    lineStyle() {
+      const left = `${w / 2 - strokeWidth / 2}px`
+      const top = `${h - h / 2 * sf1}px`
+      const width = `${strokeWidth}px`
+      const height = `${h * .5 * sf1}px`
+      return {
+        left, 
+        top, 
+        width, 
+        height, 
+        background, 
+        position
+      }
+    }
+  }
+}
