@@ -1,0 +1,1 @@
+export const sinify = (scale) => Math.sin(scale * Math.PI)
