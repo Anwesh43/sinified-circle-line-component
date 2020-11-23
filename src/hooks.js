@@ -4,7 +4,7 @@ import {
 } from 'react'
 import {sinify} from './utils'
 
-const scGap = 0.02 
+const scGap = 0.01 
 const delay = 20
 
 export const useAnimatedScale = () =>{
@@ -51,14 +51,14 @@ export const useDimension = () => {
 export const useStyle = (scale, w, h) => {
   const size = Math.min(w, h)/ 10
   const sf = sinify(scale)
-  const sf1 = sinify(scale)
+  const sf1 = sinify(sf)
   const position = 'absolute'
   const strokeWidth = Math.min(w, h) / 90
   const background = '#3F51B5'
   return {
     circleStyle() {
       const left = `${(w - size) * sf}px`
-      const top = `${(h - size) - (h / 2 - size / 2) * sf1}px`
+      const top = `${(h - size) - (h / 2) * sf1}px`
       const borderRadius = `50%`
       const width = `${size}px`
       const height = `${size}px`
